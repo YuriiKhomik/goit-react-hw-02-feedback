@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import firstLetterCapitalizer from 'utils';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return options.map(option => {
@@ -9,7 +10,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
         name={option}
         onClick={onLeaveFeedback}
       >
-        {option}
+        {firstLetterCapitalizer(option)}
       </button>
     );
   });
