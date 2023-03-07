@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback(this.state);
-    const popositivePercentage = this.countPositiveFeedbackPercentage(
+    const positivePercentage = this.countPositiveFeedbackPercentage(
       total,
       good
     );
@@ -61,19 +61,15 @@ class App extends Component {
             onLeaveFeedback={this.handleClick}
           />
           {total > 0 ? (
-            <>
-              <Statistics
-                good={good}
-                neutral={neutral}
-                bad={bad}
-                total={total}
-                popositivePercentage={popositivePercentage}
-              />
-            </>
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
           ) : (
-            <>
-              <Notification message="There is no feedback" />
-            </>
+            <Notification message="There is no feedback" />
           )}
         </Section>
       </div>
@@ -82,20 +78,3 @@ class App extends Component {
 }
 
 export default App;
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101',
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
